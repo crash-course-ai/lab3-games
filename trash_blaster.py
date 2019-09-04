@@ -667,7 +667,7 @@ if __name__ == "__main__":
     displayMod = 1
     nThreads = 10
 
-    mode = "learn"
+    mode = ""
 
     while len(args):
         arg = args.pop(0)
@@ -694,6 +694,9 @@ if __name__ == "__main__":
             mode = arg
         else:
             exit(-1)
+
+    if mode == "":
+        mode = 'play'
 
     if doDisplay:
         pygame.display.set_mode((800, 800))
