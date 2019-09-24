@@ -275,8 +275,6 @@ class Specimen:
         self.inputBias = np.array(data["inputBias"])
         self.interBiases = np.array(data["interBiases"])
         self.outputBias = np.array(data["outputBias"])
-        print(self.inputLayer.shape, self.interLayers.shape, self.outputLayer.shape)
-        print(self.inputBias.shape, self.interBiases.shape, self.outputBias.shape)
         fs.close()
 
     def activation(self, value):
@@ -447,7 +445,7 @@ class TrashBlaster:
     def wrap_coords(point):
         """
         Make the game toroidal. That is, if an object touches one side of the
-        800 by 800 pixel game board, then move it to the opposide end.
+        800 by 800 pixel game board, then move it to the opposite end.
         """
         dim = (800, 800)
         while point.x < 0: point.x += dim[0]
@@ -665,7 +663,7 @@ if __name__ == "__main__":
     loadFile = ""
     doDisplay = True
     displayMod = 1
-    nThreads = 10
+    nThreads = 4
 
     mode = ""
 
@@ -794,7 +792,7 @@ if __name__ == "__main__":
         game = TrashBlaster()
         print("Score: ", game.run())
 
-    elif mode == "":
+    elif mode == "help" or mode == "-h" or mode == "--help":
         print("SpaceQ.py MODE [flags]")
         print("\tMODE = learn, play, playback")
         print("\tflags:")
